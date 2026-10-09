@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday Reshu ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,serif;text-align:center;color:#79264f;background:linear-gradient(140deg,#fff0f6,#ffd4e5,#fff0cf);min-height:100vh;overflow-x:hidden}
+main{max-width:700px;margin:auto;padding:28px 18px 50px;position:relative;z-index:1}
+h1{font-size:clamp(42px,10vw,68px);color:#d63384;margin:15px 0;text-shadow:2px 3px #fff}
+h2{color:#bd286e}
+p{font-size:18px;line-height:1.7}
+.card{background:#ffffffc9;border:1px solid white;border-radius:25px;padding:24px 18px;margin:22px 0;box-shadow:0 10px 35px #c54d8020}
+button{background:linear-gradient(120deg,#d63384,#ff79ae);color:white;border:0;border-radius:30px;padding:14px 22px;font-size:16px;font-weight:bold;margin:8px;cursor:pointer}
+.heart{font-size:40px;animation:pulse 1.3s infinite}
+.wish{min-height:125px;display:flex;align-items:center;justify-content:center}
+.small{font:13px Arial,sans-serif;color:#a04c75}
+.float{position:fixed;bottom:-40px;animation:rise linear infinite;pointer-events:none;z-index:0}
+@keyframes rise{to{transform:translateY(-115vh) rotate(35deg);opacity:0}}
+@keyframes pulse{50%{transform:scale(1.18)}}
+</style>
+</head>
+<body>
+<main>
+<div class="small">A little surprise, made with love ✨</div>
+<div class="heart">💗</div>
+<h1>Happy Birthday<br>Reshu!</h1>
+<p>To my Cutie, my favourite person, and the sweetest part of my life. 🧸💕</p>
+
+<div class="card">
+<h2>For You, Meri Jaan 🌸</h2>
+<p>Today is all about you — your beautiful smile, your cute expressions, and all the little things that make you so special to me.</p>
+<p>May your birthday be as lovely and wonderful as your heart. 🎂</p>
+</div>
+
+<div class="card">
+<div class="small">10 little wishes, one big love 💌</div>
+<h2 id="title">Wish 1 of 10 💖</h2>
+<div class="wish"><p id="wish">May your day be filled with the same happiness you bring into my life. 💗</p></div>
+<button id="next">Next Wish 💝</button>
+</div>
+
+<div class="card">
+<h2>My Birthday Promise 🌷</h2>
+<p>I hope your life is full of beautiful moments, peaceful days, endless laughter and dreams coming true.</p>
+<p>Thank you for being you. I hope we make countless more memories together. ❤️</p>
+<div class="heart">💞</div>
+<h2>Forever Your Vishu</h2>
+<p><b>From Vishu ❤️</b></p>
+</div>
+
+<button id="musicButton">🎵 Tap to Play Music</button>
+<p class="small">Tap the button to start or pause the music.</p>
+<audio id="music" loop preload="none">
+<source src="https://cdn.pixabay.com/audio/2022/10/25/audio_946b6f5b4a.mp3" type="audio/mpeg">
+</audio>
+<p class="small">Made with lots of love, just for Reshu 💗</p>
+</main>
+
+<script>
+const wishes=[
+["Wish 1 of 10 💖","May your day be filled with the same happiness you bring into my life. 💗"],
+["Wish 2 of 10 🌸","May your beautiful smile never fade, and may you always find reasons to be happy."],
+["Wish 3 of 10 ✨","May every dream in your heart slowly become a beautiful reality."],
+["Wish 4 of 10 🧸","May you always feel loved, appreciated, respected and cared for."],
+["Wish 5 of 10 🎂","May this new year bring you wonderful adventures and unforgettable memories."],
+["Wish 6 of 10 💕","Whenever life feels difficult, remember how strong, special and amazing you are."],
+["Wish 7 of 10 🌷","May your heart always be peaceful and your days be filled with little joys."],
+["Wish 8 of 10 🦋","May you achieve your goals and become the happiest version of yourself."],
+["Wish 9 of 10 💞","May we share more laughter, silly moments, sweet memories and beautiful days together."],
+["Wish 10 of 10 🎁","Happy Birthday, my Cutie! You deserve all the beautiful things in this world. Always cheering for you. From Vishu ❤️"]
+];
+let index=0;
+document.getElementById("next").onclick=()=>{
+index=(index+1)%wishes.length;
+document.getElementById("title").textContent=wishes[index][0];
+document.getElementById("wish").textContent=wishes[index][1];
+document.getElementById("next").textContent=index===9?"Read Again 💕":"Next Wish 💝";
+};
+const music=document.getElementById("music");
+const musicButton=document.getElementById("musicButton");
+musicButton.onclick=async()=>{
+if(music.paused){
+try{await music.play();musicButton.textContent="⏸ Pause Music";}
+catch(e){musicButton.textContent="Music unavailable — try again";}
+}else{music.pause();musicButton.textContent="🎵 Tap to Play Music";}
+};
+for(let n=0;n<22;n++){
+const heart=document.createElement("div");
+heart.className="float";
+heart.textContent=["💗","♡","💕","✨","♥"][n%5];
+heart.style.left=Math.random()*100+"%";
+heart.style.animationDuration=(8+Math.random()*10)+"s";
+heart.style.animationDelay=(-Math.random()*15)+"s";
+heart.style.fontSize=(16+Math.random()*20)+"px";
+document.body.appendChild(heart);
+}
+</script>
+</body>
+</html>
